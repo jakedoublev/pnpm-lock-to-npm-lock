@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const start = __dirname + '/../lib/start.js';
+
+/** The runtime contexts we support & enforce strict lock-conversion rules upon. */
+const Contexts = {
+  Rush: 'RUSH_MONOREPO'
+};
+
+/** The file-path location of the pnpm-lock.yaml file for any undefined contexts. */
+const pnpmPath = process.argv[2];
+
+const { RUNTIME_CONTEXT } = process.env;
+
+if (RUNTIME_CONTEXT === Contexts.Rush) {
+  if (!fs.existsSync(start)) {
+    console.error('Make sure to run `rush build` before running this script.');
+    process.exit(1);
+  }
+} else if (pnpmPath) {
+  if (!fs.existsSync(`${process.cwd()}/${pnpmPath}`)) {
+    console.error(`Filepath to pnpm-lock file does not exist: ${pnpmPath}`);
+    process.exit(1);
+  }
+} else {
+  console.error(
+    `Received ${RUNTIME_CONTEXT} runtime context & ${pnpmPath} path to pnpm-lock file. Either a valid filepath or runtime context is required.`
+  );
+  process.exit(1);
+}
+
+require(start)({ ctx: RUNTIME_CONTEXT, pnpmPath });
