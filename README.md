@@ -38,6 +38,8 @@ but provision of a proper path to any `pnpm-lock.yaml` will create a scannable
 
 ## Contributing
 
+Primarily maintained by [Ryan Schumacher (@jrschumacher)](https://github.com/jrschumacher) & [Jake Van Vorhis (@jakedoublev)](https://github.com/jakedoublev).
+
 We'd love your help maintaining and extending `pnpm-lock-to-npm-lock`!
 
 To test the tool within this repo: `npx . pnpm-lock.yaml`
