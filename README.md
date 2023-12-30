@@ -1,6 +1,11 @@
 # PNPM Lock to NPM Lock
 
-This script is used to convert a pnpm-lock.yaml file to a package-lock.json file for audit scan purposes only. This is not intended to be used to convert a project from pnpm to npm.
+This script is used to convert a `pnpm-lock.yaml` file to a `package-lock.json` file for audit scan purposes only.
+
+Successful scanning is accomplished by preserving all dependency sha's for security scanning tools like
+[Prisma, Twistlock](https://www.paloaltonetworks.com/blog/2019/11/cloud-prisma-cloud-compute-edition/),
+[Checkov](https://www.checkov.io/), etc which support scanning npm's `package-lock.json` out of the box.
+This is not intended to be used to convert a project from [pnpm](https://pnpm.io/) to [npm](https://www.npmjs.com/).
 
 - [Overview](#overview)
 - [Contributing](#contributing)
