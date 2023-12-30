@@ -1,0 +1,31 @@
+{
+  "name": "pnpm-lock-to-npm-lock",
+  "version": "1.0.0",
+  "description": "Tool to convert a pnpm-lock.yaml into a package-lock.json",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Ryan Schumacher",
+      "url": "https://github.com/jrschumacher"
+    },
+    {
+      "name": "Jake Van Vorhis",
+      "url": "https://github.com/jakedoublev"
+    }
+  ],
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'No tests specified' && exit 0"
+  },
+  "bin": {
+    "pnpm-lock-to-npm-lock": "./bin/pnpm-lock-to-npm-lock"
+  },
+  "dependencies": {
+    "yaml": "~2.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6"
+  }
+}
